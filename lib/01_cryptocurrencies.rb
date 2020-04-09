@@ -29,16 +29,28 @@ end
 
 my_hash = combine_arrays_into_hash(array1, array2)
 
+puts "-"*30
 #The most valuable crypto is:
 puts "The most valuable crypo is #{largest_hash_key(my_hash)} "
 
+puts "-"*30
 #The less valuable crypto is:
 puts "The less valuable crypo is #{less_hash_key(my_hash)} "
 
+puts "-"*30
 #The crypto that has "Coin" is:
-puts my_hash.include?("coin")
+puts "The NUMBER OF CRYPTO THAT HAS COIN IN ITS NAME IS:"
+result_key = []
+keys = my_hash.keys
+keys.length.times do |i|
+    if (/coin/.match("#{keys[i]}"))
+        result_key << keys[i]
+    end
+end
+puts result_key.length
+#puts result_key           #-> Take the "#" off to see the results
 
-
+puts "-"*30
 #The cryptos that are less valuable than 6000:
 puts "THE CRYPTOS THAT ARE LESS VALUABLE THAN 6000:"
 my_hash.each do |key, value|
